@@ -25,6 +25,16 @@ pub const DIGIPIN_LONGITUDE_MAX: f64 = 99.5;
 
 /// Official DIGIPIN symbols (base-16)
 pub const DIGIPIN_SYMBOLS: [char; 16] = [
-    '2', '3', '4', '5', '6', '7', '8', '9', 'C', 'J', 'K', 'L', 'M', 'P', 'F', 'T',
+    'F', 'C', '9', '8', 'J', '3', '2', '7', 'K', '4', '5', '6', 'L', 'M', 'P', 'T',
 ];
-pub const DIGIPIN_BASE: usize = 16;
+pub const DIGIPIN_LENGTH: usize = 10;
+pub const DIGIPIN_GRID_SIZE: usize = 4;
+pub const DIGIPIN_LABEL_GRID: [[char; DIGIPIN_GRID_SIZE]; DIGIPIN_GRID_SIZE] = [
+    ['F', 'C', '9', '8'],
+    ['J', '3', '2', '7'],
+    ['K', '4', '5', '6'],
+    ['L', 'M', 'P', 'T'],
+];
+
+/// Maximum possible error after DIGIPIN decode in degrees (derived from specification:  36° / 4¹⁰ / 2)
+pub const DIGIPIN_MAX_DECODE_ERROR_DEGREES: f64 = 0.0000171661376953125;
