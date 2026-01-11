@@ -37,4 +37,5 @@ pub const DIGIPIN_LABEL_GRID: [[char; DIGIPIN_GRID_SIZE]; DIGIPIN_GRID_SIZE] = [
 ];
 
 /// Maximum possible error after DIGIPIN decode in degrees (derived from specification:  36° / 4¹⁰ / 2)
+#[cfg(test)]
 pub const DIGIPIN_MAX_DECODE_ERROR_DEGREES: f64 = 0.0000171661376953125;
