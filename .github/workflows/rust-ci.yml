@@ -1,0 +1,85 @@
+name: CI — rust/digipin
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "rust/digipin/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "rust/digipin/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build & Test (stable)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout only rust/digipin
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          # sparse-checkout keeps the runner from downloading the whole repo
+          sparse-checkout: |
+            rust/digipin/**
+
+      - name: Cache cargo registry & build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            rust/digipin/target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('rust/digipin/**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Set up Rust (stable) with clippy & rustfmt
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+          profile: minimal
+
+      - name: fmt check
+        working-directory: rust/digipin
+        run: cargo fmt -- --check
+
+      - name: clippy (deny warnings)
+        working-directory: rust/digipin
+        run: cargo clippy --workspace --all-targets --all-features -- -D warnings
+
+      - name: Run tests
+        working-directory: rust/digipin
+        run: cargo test --workspace --all-features --verbose
+
+      - name: Install cargo-audit
+        run: |
+          # install cargo-audit (ignore failure to allow cached installs)
+          cargo install --locked cargo-audit || true
+
+      - name: Run cargo-audit
+        working-directory: rust/digipin
+        run: |
+          if command -v cargo-audit >/dev/null; then
+            cargo audit || (echo "cargo-audit found issues" && exit 1)
+          else
+            echo "cargo-audit not installed"
+          fi
+
+      - name: Install cargo-deny
+        run: |
+          cargo install cargo-deny || true
+
+      - name: Run cargo-deny (policy check)
+        working-directory: rust/digipin
+        run: |
+          if command -v cargo-deny >/dev/null; then
+            cargo deny check || (echo "cargo-deny found policy issues" && exit 1)
+          else
+            echo "cargo-deny not installed"
+          fi
