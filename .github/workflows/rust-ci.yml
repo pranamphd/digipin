@@ -1,14 +1,27 @@
+# GitHub Actions workflow for CI of the rust/digipin library
+# This workflow runs on pushes and pull requests to the main branch,
+# specifically when changes are made in the rust/digipin/ directory.
+# It performs formatting checks, linting, testing, and security audits.
+# Workflow Dispatch is also enabled for manual runs.
+# Permissions are set to read-only for repository contents.
+# Workflow Name: CI — rust/digipin
+# Required repository variable:
+# - None
 name: CI — rust/digipin
 
 on:
   push:
     branches: [main]
     paths:
-      - "rust/digipin/**"
+      - "rust/digipin/**/*.rs"
+      - "rust/digipin/**/Cargo.toml"
+      - "rust/digipin/**/Cargo.lock"
   pull_request:
     branches: [main]
     paths:
-      - "rust/digipin/**"
+      - "rust/digipin/**/*.rs"
+      - "rust/digipin/**/Cargo.toml"
+      - "rust/digipin/**/Cargo.lock"
   workflow_dispatch:
 
 permissions:
