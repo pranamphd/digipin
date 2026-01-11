@@ -1,5 +1,5 @@
 [package]
-name = "digipin-rs"
+name = "digipin"
 version = "0.1.0-alpha.13"
 edition = "2024"
 license = "Apache-2.0"
