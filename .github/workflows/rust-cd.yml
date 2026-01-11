@@ -119,7 +119,7 @@ jobs:
           set -euo pipefail
           echo "Packaging crate (Cargo.toml version ${CRATE_VERSION})..."
           cargo package --allow-dirty
-          mkdir -p ../artifacts
+          mkdir -p artifacts
           CRATE_PATH=$(ls target/package/*.crate | head -n1)
           if [ -z "$CRATE_PATH" ]; then
             echo "ERROR: cargo package did not produce a .crate file"
@@ -128,10 +128,13 @@ jobs:
           echo "CRATE_PATH=${CRATE_PATH}" >> $GITHUB_ENV
           CRATE_FILE=$(basename "$CRATE_PATH")
           echo "CRATE_FILE=${CRATE_FILE}" >> $GITHUB_ENV
-          cp "$CRATE_PATH" ../artifacts/
+          cp "$CRATE_PATH" artifacts/
           echo "Copied crate to artifacts/"
+          echo "Listing artifacts/:"
+          ls -la artifacts
 
       - name: Create deterministic checksum for artifact
+        working-directory: rust/digipin
         run: |
           set -euo pipefail
           mkdir -p artifacts
