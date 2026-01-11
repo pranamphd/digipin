@@ -10,7 +10,7 @@
 # - SYFT_SHA256              : sha256 of the syft tarball you will download
 # - COSIGN_EXPERIMENTAL: set to 1 in env when invoking cosign action if needed
 # - TEST_MODE                : set "true" for test/draft-only
-name: CD — rust/digipin (library)
+name: CD — rust/digipin
 
 on:
   push:
