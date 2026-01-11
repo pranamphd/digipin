@@ -272,7 +272,6 @@ jobs:
           echo "cargo publish completed"
 
       - name: Finalize — print verification instructions
-        if: always()
         run: |
           set -euo pipefail
           echo "Release completed for tag ${TAG}, artifact artifacts/${CRATE_FILE}"
