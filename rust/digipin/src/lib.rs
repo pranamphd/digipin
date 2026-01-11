@@ -31,15 +31,15 @@
 /// let decoded_location = decode(&digipin).unwrap();
 /// ```
 mod constants;
+mod decode;
+mod encode;
 mod errors;
 mod location;
 mod normalize;
 mod validation;
-mod encode;
-mod decode;
 
-pub use encode::encode;
 pub use decode::decode;
+pub use encode::encode;
 pub use errors::DigipinError;
 pub use location::Location;
 
