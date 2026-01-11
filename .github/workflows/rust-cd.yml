@@ -192,26 +192,6 @@ jobs:
           fi
           echo "SBOM validation OK"
 
-      - name: Create SLSA provenance attestation (GitHub) using CycloneDX predicate
-        uses: github/attest-build-provenance@v3
-        with:
-          subject-path: "artifacts/${{ env.CRATE_FILE }}"
-          predicate-file: "sbom/sbom-cyclonedx.json"
-
-      - name: Cosign attest (keyless via sigstore action)
-        uses: sigstore/cosign-action@v2
-        with:
-          args: attest --predicate sbom/sbom-cyclonedx.json --type cyclonedx "artifacts/${{ env.CRATE_FILE }}"
-        env:
-          COSIGN_EXPERIMENTAL: 1
-
-      - name: Cosign sign (keyless via sigstore action)
-        uses: sigstore/cosign-action@v2
-        with:
-          args: sign "artifacts/${{ env.CRATE_FILE }}"
-        env:
-          COSIGN_EXPERIMENTAL: 1
-
       - name: Create GitHub Release (DRAFT)
         id: create_release
         uses: actions/create-release@v1
