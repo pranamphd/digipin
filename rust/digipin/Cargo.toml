@@ -1,9 +1,10 @@
 [package]
 name = "digipin"
-version = "0.1.0"
+version = "0.1.0-alpha"
 edition = "2024"
 license = "Apache-2.0"
 description = "Rust library for encoding and decoding DIGIPIN (Digital Postal Index Number)"
 keywords = ["digipin", "geocoding", "postal", "spatial", "gis", "address", "india"]
+repository = "https://github.com/pranamphd/digipin"
 
 [dependencies]
