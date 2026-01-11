@@ -11,6 +11,10 @@
 // ![QR Code](/ORCID.png)
 // Scan the QR code to access my ORCID profile.
 
+/// Represents a geographic location with latitude and longitude.
+/// # Fields
+/// - `latitude`: The latitude in degrees.
+/// - `longitude`: The longitude in degrees.
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Location {
     pub latitude: f64,
