@@ -19,7 +19,7 @@ jobs:
     name: Build & Test (stable)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout only rust/digipin
+      - name: Checkout rust/digipin
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
