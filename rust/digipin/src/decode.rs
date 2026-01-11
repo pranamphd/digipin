@@ -39,9 +39,9 @@ pub fn decode(digipin: &str) -> Result<Location, DigipinError> {
 
         let mut found = false;
 
-        for row in 0..DIGIPIN_GRID_SIZE {
-            for column in 0..DIGIPIN_GRID_SIZE {
-                if DIGIPIN_LABEL_GRID[row][column] == symbol {
+        for (row, row_cells) in DIGIPIN_LABEL_GRID.iter().enumerate() {
+            for (column, cell) in row_cells.iter().enumerate() {
+                if *cell == symbol {
                     latitude_max -= row as f64 * latitude_step;
                     latitude_min = latitude_max - latitude_step;
 
