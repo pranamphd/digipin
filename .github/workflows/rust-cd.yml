@@ -259,7 +259,7 @@ jobs:
           RELEASE_ID=${{ steps.create_release.outputs.id }}
           echo "Publishing release id=${RELEASE_ID}"
           curl -sS -X PATCH "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: token $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -d '{"draft": false, "prerelease": false}'
         env:
