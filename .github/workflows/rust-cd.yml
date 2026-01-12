@@ -20,12 +20,6 @@ on:
       - "rust/digipin/**"
   workflow_dispatch:
 
-permissions:
-  contents: write
-  packages: write
-  id-token: write
-  attestations: write
-
 concurrency:
   group: publish-rust-digipin-${{ github.ref }}
   cancel-in-progress: false
@@ -34,6 +28,11 @@ jobs:
   publish:
     name: Publish rust/digipin
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+      attestations: write
     environment: production
     env:
       TEST_MODE: ${{ vars.TEST_MODE }}
