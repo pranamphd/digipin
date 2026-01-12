@@ -105,7 +105,7 @@ jobs:
           cargo --version
 
       - name: Cache cargo registry & build (keyed by crate Cargo.lock)
-        uses: actions/cache@v4
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: |
             ~/.cargo/registry
