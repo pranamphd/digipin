@@ -55,6 +55,7 @@ Additional languages may be added over time.
 This repository is under active development.
 The library interfaces (function and type signatures) may evolve until the first stable release (`v1.0.0`).
 
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11730/badge)](https://www.bestpractices.dev/projects/11730)
 ---
 
 ## License
