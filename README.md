@@ -8,11 +8,11 @@ This repository contains **multi-language reference implementations of the DIGIP
 
 ## What this repository provides
 
-* Deterministic conversion from **latitude / longitude → DIGIPIN**
-* Reversible conversion from **DIGIPIN → geographic coordinates**
-* Identical behavior across all supported programming languages
-* Shared test vectors to ensure cross-language parity
-* Implementations aligned with the **final DIGIPIN Technical Specification (March 2025)**
+- Deterministic conversion from **latitude / longitude → DIGIPIN**
+- Reversible conversion from **DIGIPIN → geographic coordinates**
+- Identical behavior across all supported programming languages
+- Shared test vectors to ensure cross-language parity
+- Implementations aligned with the **final DIGIPIN Technical Specification (March 2025)**
 
 ---
 
@@ -31,11 +31,11 @@ All implementations in this repository aim to faithfully reproduce the behavior 
 
 ## Supported languages
 
-* Python
-* Rust
-* Go
-* TypeScript
-* Swift
+- Python
+- Rust
+- Go
+- TypeScript
+- Swift
 
 Additional languages may be added over time.
 
@@ -43,10 +43,10 @@ Additional languages may be added over time.
 
 ## Design principles
 
-* **Specification-first**: All implementations strictly follow the DIGIPIN technical specification.
-* **Deterministic**: The same input always produces the same output, regardless of language or platform.
-* **No external dependencies**: Core logic is self-contained.
-* **Cross-language parity**: Shared test vectors ensure consistent behavior across SDKs.
+- **Specification-first**: All implementations strictly follow the DIGIPIN technical specification.
+- **Deterministic**: The same input always produces the same output, regardless of language or platform.
+- **No external dependencies**: Core logic is self-contained.
+- **Cross-language parity**: Shared test vectors ensure consistent behavior across SDKs.
 
 ---
 
@@ -56,6 +56,7 @@ This repository is under active development.
 The library interfaces (function and type signatures) may evolve until the first stable release (`v1.0.0`).
 
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11730/badge)](https://www.bestpractices.dev/projects/11730)
+
 ---
 
 ## License
