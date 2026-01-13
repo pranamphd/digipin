@@ -16,6 +16,7 @@ Please include (in `plaintext` and English):
 | Version       | Supported          |
 | ------------- | ------------------ |
 | 0.1.x         | :white_check_mark: |
+| 0.1.x-beta.x         | :white_check_mark: |
 | 0.1.x-alpha.x | :x:                |
 
 ## Supply Chain Security (SLSA)
