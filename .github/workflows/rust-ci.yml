@@ -50,9 +50,9 @@ jobs:
             ~/.cargo/git
             ~/.cargo/bin
             target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.toml') }}
+          key: ${{ runner.os }}-digipin-rs-ci-${{ hashFiles('Cargo.toml') }}
           restore-keys: |
-            ${{ runner.os }}-cargo-
+            ${{ runner.os }}-digipin-rs-ci-
 
       - name: Install Rust toolchain (pin if desired)
         run: |
