@@ -210,6 +210,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload release asset (.crate)
+        if: ${{ env.TEST_MODE != 'true' }}
         uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -220,6 +221,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload SBOM (CycloneDX)
+        if: ${{ env.TEST_MODE != 'true' }}
         uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -230,6 +232,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload SBOM (SPDX)
+        if: ${{ env.TEST_MODE != 'true' }}
         uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -240,6 +243,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload checksum file
+        if: ${{ env.TEST_MODE != 'true' }}
         uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
