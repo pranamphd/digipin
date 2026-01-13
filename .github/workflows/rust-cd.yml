@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   publish:
-    name: Publish digipin-rs crate
+    name: Publish digipin-rs
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -103,9 +103,9 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             target
-          key: ${{ runner.os }}-rust-digipin-${{ hashFiles('Cargo.lock') }}-cargo-target
+          key: ${{ runner.os }}-digipin-rs-cd-${{ hashFiles('Cargo.lock') }}
           restore-keys: |
-            ${{ runner.os }}-rust-digipin-
+            ${{ runner.os }}-digipin-rs-cd-
 
       - name: Publish crate to crates.io
         if: ${{ env.TEST_MODE != 'true' }}
