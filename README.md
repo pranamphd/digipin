@@ -38,6 +38,11 @@ All implementations in this repository aim to faithfully reproduce the behavior 
 
 ## Usage
 
+
+```sh
+cargo add digipin-rs
+```
+
 ```rust
 use digipin::{encode, decode, Location};
 
@@ -48,10 +53,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
 
     let digipin = encode(location)?;
-    let decoded = decode(&digipin)?;
+    let decoded_location = decode(&digipin)?;
 
     println!("DIGIPIN: {}", digipin);
-    println!("Decoded: {:?}", decoded);
+    println!("Decoded Location: {:?}", decoded_location);
 
     Ok(())
 }

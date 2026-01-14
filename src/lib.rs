@@ -32,9 +32,9 @@
 ///         longitude: 77.213033,
 ///     };
 ///     let digipin = encode(location)?;
-///     let decoded = decode(&digipin)?;
+///     let decoded_location = decode(&digipin)?;
 ///     println!("DIGIPIN: {}", digipin);
-///     println!("Decoded: {:?}", decoded);
+///     println!("Decoded Location: {:?}", decoded_location);
 ///     Ok(())
 /// }
 /// ```
