@@ -66,9 +66,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Documentation
 
-API documentation is available on [**docs.rs**](https://docs.rs/digipin).
+API documentation is available on [**docs.rs**](https://docs.rs/digipin-rs).
 
-[![docs.rs](https://docs.rs/digipin/badge.svg)](https://docs.rs/digipin)
+[![docs.rs](https://docs.rs/digipin-rs/badge.svg)](https://docs.rs/digipin-rs)
 
 ---
 
